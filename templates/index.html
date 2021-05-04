@@ -32,10 +32,11 @@
     <div style="text-align: center;" class="alert alert-primary"  role="alert">
         <h4 >Name : {{res.name}}</h2>
         <h5 >Code : {{res.code}}</h3>
-        <h6 >Link : <code>{{request.build_absolute_uri}}static{{res.file}}</code></h6>
+        <h6 >Link : <code>{{request.build_absolute_uri}}static/media/{{res.file}}</code></h6>
         <a  href="/admin/api/res/{{res.id}}/change/" class="btn btn-outline-danger float-none">Change File</a>
         <a  href="/delete/{{res.code}}" class="btn btn-outline-danger float-none">Delete</a>
         <a  href="/download/{{res.code}}" class="btn btn-outline-danger float-none">Download</a>
+        <a target="_blank" href="/static/media/{{res.file}}" class="btn btn-outline-danger float-none">show</a>
         
       </div>
       {% endfor %}
