@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <title>Home Page</title>
+  </head>
+  <body style="background-color: aliceblue">
+      <div class="container">
+        <ul class="nav" style="align-content: center;">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/admin">Admin</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/api/res/add/">Add res</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/logout/">Logout</a>
+            </li>
+           
+          </ul>
+          <br>
+      {% for res in res %}
+    <div style="text-align: center;" class="alert alert-primary"  role="alert">
+        <h4 >Name : {{res.name}}</h2>
+        <h5 >Code : {{res.code}}</h3>
+        <h6 >Link : <code>{{request.build_absolute_uri}}static{{res.file}}</code></h6>
+        <a  href="/admin/api/res/{{res.id}}/change/" class="btn btn-outline-danger float-none">Change File</a>
+        <a  href="/delete/{{res.code}}" class="btn btn-outline-danger float-none">Delete</a>
+        <a  href="/download/{{res.code}}" class="btn btn-outline-danger float-none">Download</a>
+        
+      </div>
+      {% endfor %}
+      </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    -->
+  </body>
+ 
+</html>
